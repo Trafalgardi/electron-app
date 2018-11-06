@@ -1,0 +1,23 @@
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+div .row li {
+    text-align: center;
+    padding: 12px 0px;
+    list-style-position: inside;
+    border: solid #e9e9e9 1px;
+    
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 1px;
+
+    list-style-type: none; /* Убираем маркеры */
+}
+.lastCol {
+    border: none;
+}
+
+.list-group-item{
+    padding: 0px;
+}

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" >
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/light-bootstrap-dashboard.css">
+  <link rel="stylesheet" href="css/sub.css">
+  <title>Electron application</title>
+</head>
+
+<body>
+  <div id="desktop-app-container">
+      <header id="desktop-app-title-bar">
+          <div class="resize-handle top"></div>
+          <div class="resize-handle left"></div>
+          <div class="option" id="headerClose"><svg aria-hidden="true" version="1.1" width="10" height="10"><path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z"></path></svg></div>
+          <div class="option" id="maximize"><svg aria-hidden="true" version="1.1" width="10" height="10"><path d="M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z"></path></svg></div>
+          <div class="option" id="minimize"><svg aria-hidden="true" version="1.1" width="10" height="10"><path d="M 0,5 10,5 10,6 0,6 Z"></path></svg></div>
+        </header>
+      <div class="wrapper">
+          <div class="sidebar" data-color="black" data-image="img/sidebar-4.jpg">
+              
+              <div class="sidebar-wrapper">
+                  <div class="logo">
+                      <a class="simple-text">
+                          Кадровая безопасность
+                      </a>
+                  </div>
+                  <ul class="nav">
+                    <!-- тут список страниц -->
+                      <li class="nav-item active">
+                          <a class="nav-link" href="./userList.html">
+                              <i class="nc-icon nc-notes"></i>
+                              <p>Пользователи</p>
+                          </a>
+                      </li>
+
+                  </ul>
+              </div>
+          </div>
+          <div class="main-panel">
+              <!-- Navbar -->
+              <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                  <div class=" container-fluid  ">
+                      <a class="navbar-brand" href=""> Таблица пользователей </a>
+                      <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-bar burger-lines"></span>
+                          <span class="navbar-toggler-bar burger-lines"></span>
+                          <span class="navbar-toggler-bar burger-lines"></span>
+                      </button>
+                      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                              <li class="dropdown nav-item">
+                                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                      <i class="nc-icon nc-planet"></i>
+                                      <span class="notification">5</span>
+                                      <span class="d-lg-none">Уведомления</span>
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      <a class="dropdown-item" href="#">Уведомления 1</a>
+                                      <a class="dropdown-item" href="#">Уведомления 2</a>
+                                      <a class="dropdown-item" href="#">Уведомления 3</a>
+                                      <a class="dropdown-item" href="#">Уведомления 4</a>
+                                      <a class="dropdown-item" href="#">Другие уведомления</a>
+                                  </ul>
+                              </li>
+                          </ul>
+                          
+                          <ul class="navbar-nav ml-auto">
+                              <li class="nav-item">
+                                  <a href="#" class="nav-link">
+                                      <i class="nc-icon nc-zoom-split"></i>
+                                      <span class="d-lg-block">&nbsp;Поиск</span>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#pablo">
+                                      <span id="btnClose" class="no-icon">Выход</span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+              <!-- End Navbar -->
+              <div class="content" id="userListContent">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="card strpied-tabled-with-hover">
+                                  <div class="card-header ">
+                                      <h4 class="card-title">Список всех пользователей системы</h4>
+                                      <p class="card-category">данный представленны в ввиде таблицы</p>
+                                  </div>
+                                  <div class="card-body table-full-width table-responsive" style="padding: none;">
+
+                                      <div class="list-group" id="addSomePersonal">
+
+                                        <a class="list-group-item list-group-item-action disabled">
+                        <div class="row">
+                          <li class="col-1">#</li>
+                                                <li class="col-3">ФИО</li>
+                                                <li class="col-3">Должность</li>
+                                                <li class="col-1">Пол</li>
+                                                <li class="col-1">Возраст</li>
+                                                <li class="col-1">A</li>
+                                                <li class="col-1">T</li>
+                                                <li class="col-1" style=" border: none;">O</li>
+                        </div>
+                      </a>
+
+                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+
+              <div class="content" id="userContent" style="display: none;">
+                  <div class="container-fluid">
+                      <div class="row sticky-block">
+                          <div class="col-md-8">
+                              <div class="card">
+                                  <div class="card-header">
+                                      <h4 class="card-title">Паспортные данные</h4>
+                                  </div>
+                                  <div class="card-body">
+                                      <div class="row">
+                                          <div class="col-md-2 pr-1">
+                                              <div class="form-group">
+                                                  <label class="label-center" >Серия</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">22 22</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-3 pl-1">
+                                              <div class="form-group">
+                                                  <label class="label-center">Номер</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">222222</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-3 pl-1">
+                                              <div class="form-group">
+                                                  <label class="label-center">Код подразделения</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">700-011</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-4 pl-1">
+                                              <div class="form-group">
+                                                  <label class="label-center">Дата выдачи</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">29.09.2016</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+
+                                          <div class="col-md-12 pr-1">
+                                              <div class="form-group">
+                                                  <label>Кем когда выдан</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">УФМС РОССИИ ПО ТОМСКОЙ ОБЛОСТИ В ОКТЯБРСКОМ РАЙОНЕ ГОР. ТОМСКА</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                              <div class="form-group">
+                                                  <label>Место регистрации</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Томск, Томская область, Бирюкова 2, кв.183, 634062</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                              <div class="form-group">
+                                                  <label>Место жительства</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Томск, Томская область, Бирюкова 2, кв.183, 634062</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                              <div class="form-group">
+                                                  <label>Место рождения</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Томск, Томская область</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Гражданство</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Российская федерация</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Дети</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Нет</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-4 inner" >
+                              <div class="card card-user">
+                                  <div class="card-image">
+                                      <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="...">
+                                  </div>
+                                  <div class="card-body">
+                                      <div class="author" style=" padding: 0px 20px">
+                                          <a href="#">
+                                              <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="...">
+                                              <h5 class="title" id="fio">Мальцев Вячеслав Евгеньевич</h5>
+                                          </a>
+                                          <p class="description" style="text-align: left; position: relative; color: gray;">
+                                              Почта: <h id="email" style="float: right; color: black">theremandram@gmail.com</h>
+                                          </p>
+                                          <p class="description" style="text-align: left; color: gray;">
+                                              Номер телефона: <h id="phone" style="float: right; color: black"> 8-960-972-2029 </h>
+                                          </p>
+                                           <p class="description"  style="text-align: left; color: gray;">
+                                              Дата рождения: <h id="dob" style="float: right; color: black"> 08.09.1996 </h>
+                                          </p>
+                                          <p class="description"  style="text-align: left; color: gray;">
+                                              Полных лет: <h id="age" style="float: right; color: black"> 21 год </h>
+                                          </p>
+                                          <p class="description"  style="text-align: left; color: gray;">
+                                              Пол: <h id="gender" style="float: right; color: black"> Мужской </h>
+                                          </p>
+                                          <p class="description"  style="text-align: left; color: gray;">
+                                              Семейное положение: <h id="maritalStatus" style="float: right; color: black"> Холост </h>
+                                          </p>
+                                          <p class="description"  style="text-align: left; color: gray;">
+                                              Должность: <h id="position" style="float: right; color: black"> Web developer </h>
+                                          </p>
+                                          <p class="description"  style="text-align: left; color: gray;">
+                                              Отдел: <h id="department" style="float: right; color: black"> Технический отдел </h>
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <hr>
+                                  <div class="button-container mr-auto ml-auto">
+                                      <p class="description text-center"> 
+                                          Дата регистрации: <h id="join_date" style="float: right; color: black"> </h>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card">
+                                  <div class="card-header">
+                                      <h4 class="card-title">Паспортные данные</h4>
+                                  </div>
+                                  <div class="card-body">
+                                      <div class="row">
+                                          <div class="col-md-2 pr-1">
+                                              <div class="form-group">
+                                                  <label class="label-center" >Серия</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">22 22</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-3 pl-1">
+                                              <div class="form-group">
+                                                  <label class="label-center">Номер</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">222222</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-3 pl-1">
+                                              <div class="form-group">
+                                                  <label class="label-center">Код подразделения</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">700-011</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-4 pl-1">
+                                              <div class="form-group">
+                                                  <label class="label-center">Дата выдачи</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">29.09.2016</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+
+                                          <div class="col-md-12 pr-1">
+                                              <div class="form-group">
+                                                  <label>Кем когда выдан</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">УФМС РОССИИ ПО ТОМСКОЙ ОБЛОСТИ В ОКТЯБРСКОМ РАЙОНЕ ГОР. ТОМСКА</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                              <div class="form-group">
+                                                  <label>Место регистрации</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Томск, Томская область, Бирюкова 2, кв.183, 634062</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                              <div class="form-group">
+                                                  <label>Место жительства</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Томск, Томская область, Бирюкова 2, кв.183, 634062</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                              <div class="form-group">
+                                                  <label>Место рождения</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Томск, Томская область</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Гражданство</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Российская федерация</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Дети</label>
+                                                  <div id="body-text">
+                                                      <p class="body-p">Нет</p>
+                                                      <hr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+</body>
+<script src="renderer.js"></script>
+
+</html>
