@@ -42,32 +42,26 @@ document.getElementById('maximize').addEventListener('click', (event) => {
 	
 });*/
 
-function connect(parms) {
- 
-  var url = "http://php/api.php";
-  var method = "POST";
-  //var postData = '{ "type" : "auth", "login" : "admin", "password" : "admin" }';
-  var postData = parms;
+$(document).ready(function getUsers() {
 
-
-  // You REALLY want shouldBeAsync = true.
-  // Otherwise, it'll block ALL execution waiting for server response.
-  var shouldBeAsync = true;
-
-  var request = new XMLHttpRequest();
-
-  request.onload = function () {
-
-     var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-     var data = request.responseText; // Returned data, e.g., an HTML document.
-     data = JSON.parse(data);
-     console.log(data.access)
-  }
-
-  request.open(method, url, shouldBeAsync);
-
-  request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  // Actually sends the request to the server.
-  request.send(postData);
-
-}
+    $.get("https://personnelsecurity.info/getData", function(data, status){
+      var str = JSON.stringify(data, "", 2); // spacing level = 2
+      var json = {
+        "personnelData": {
+          "firstName": "Вячеслав",
+          "lastName": "Мальцев",
+          "secondName": "Евгеньевич",
+          "gender": "Мужской",
+          "age": "22",
+          "registration": "гражданство РФ",
+          "children": "нет"
+          
+        }
+      };
+      var pd = data[0].data;
+      //pd = JSON.stringify(pd);
+      
+      
+      console.log("Data: " + pd + "\nStatus: " + status);
+    });
+});
